@@ -3,8 +3,9 @@ import helmet from "helmet";
 import cors from "cors";
 import { env } from "./config/env.config.js";
 import cookieParser from "cookie-parser";
+import { globalErrorHandler } from "./middlewares/error.middleware.js";
 
-export const app = express();
+const app = express();
 
 app.use(helmet());
 app.use(
@@ -24,3 +25,7 @@ app.get("/health-check", (_: Request, res: Response) => {
     message: "Health is fine",
   });
 });
+
+app.use(globalErrorHandler);
+
+export default app;
