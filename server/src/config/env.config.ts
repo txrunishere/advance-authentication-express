@@ -10,6 +10,7 @@ const envSchema = z.object({
   NODE_ENV: z.enum(["development", "production"]),
   FRONTEND_URL: z.url(),
   DATABASE_URL: z.string(),
+  SALT_ROUNDS: z.coerce.number(),
 });
 
 const parsedEnv = envSchema.safeParse(process.env);

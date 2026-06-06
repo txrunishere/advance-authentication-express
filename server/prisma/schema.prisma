@@ -1,6 +1,6 @@
 generator client {
   provider = "prisma-client"
-  output   = "../generated/prisma"
+  output   = "../src/generated/prisma"
 }
 
 datasource db {
@@ -20,7 +20,6 @@ model User {
 model Session {
   id                 String   @id @default(uuid())
   refresh_token_hash String
-  user_id            String
   expires_at         DateTime
   created_at         DateTime @default(now())
   updated_at         DateTime @default(now()) @updatedAt
