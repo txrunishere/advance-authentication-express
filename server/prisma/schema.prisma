@@ -11,7 +11,7 @@ model User {
   id            String    @id @default(uuid())
   email         String    @unique
   password_hash String
-  is_verifies   Boolean   @default(false)
+  is_verified   Boolean   @default(false)
   created_at    DateTime  @default(now())
   updated_at    DateTime  @default(now()) @updatedAt
   sessions      Session[]
